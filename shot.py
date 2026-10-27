@@ -17,5 +17,5 @@ with sync_playwright() as p:
 
     page.screenshot(path="full.png")
     page.screenshot(path="meteogram.png",
-                    clip={"x": 240, "y": 115, "width": 760, "height": 885})
+                    clip={"x": 244, "y": 70, "width": 756, "height": 930})
     b.close()
