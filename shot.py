@@ -9,7 +9,12 @@ with sync_playwright() as p:
     page = b.new_page(viewport={"width": 1000, "height": 1000},
                       user_agent=UA, locale="pl-PL")
     page.goto(URL, wait_until="networkidle")
-    page.wait_for_timeout(8000)   # Flutter potrzebuje chwili na narysowanie wykresu
+    page.wait_for_timeout(8000)          # Flutter potrzebuje chwili na narysowanie wykresu
+
+    # zamknięcie okna "Co nowego?"
+    page.keyboard.press("Escape")
+    page.wait_for_timeout(2000)          # animacja zamykania
+
     page.screenshot(path="full.png")
     page.screenshot(path="meteogram.png",
                     clip={"x": 240, "y": 115, "width": 760, "height": 885})
